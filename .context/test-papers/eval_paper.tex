@@ -1,0 +1,90 @@
+\documentclass{article}
+\begin{document}
+
+% ── Transformer ──────────────────────────────────────────────────────────────
+The Transformer architecture \cite{vaswani2017attention} achieves 28.4 BLEU on
+WMT 2014 English-to-German translation, outperforming all prior models.
+The base model uses 8 attention heads \cite{vaswani2017attention} in each
+multi-head attention layer.
+Unlike previous work, the Transformer \cite{vaswani2017attention} uses recurrent
+layers to model sequential dependencies.
+The Transformer \cite{vaswani2017attention} requires pre-training on a large
+unlabeled corpus before fine-tuning on downstream tasks.
+
+% ── BERT ─────────────────────────────────────────────────────────────────────
+BERT \cite{devlin2018bert} is pre-trained using a masked language modeling
+objective on large unlabeled text corpora.
+BERT \cite{devlin2018bert} achieves state-of-the-art on eleven natural language
+processing tasks including GLUE and SQuAD.
+BERT \cite{devlin2018bert} requires no pre-training and is trained end-to-end
+on each individual downstream task.
+BERT \cite{devlin2018bert} achieves perfect accuracy on the MNLI benchmark.
+
+% ── GPT-3 ────────────────────────────────────────────────────────────────────
+GPT-3 \cite{brown2020language} contains 175 billion parameters, making it the
+largest language model at time of publication.
+GPT-3 \cite{brown2020language} achieves 76.2\% accuracy on TriviaQA in the
+few-shot setting without any gradient updates.
+GPT-3 \cite{brown2020language} requires fine-tuning on each task to achieve
+competitive performance on NLP benchmarks.
+GPT-3 \cite{brown2020language} outperforms all fine-tuned models on every
+SuperGLUE benchmark task.
+
+% ── ResNet ───────────────────────────────────────────────────────────────────
+Residual networks \cite{he2016deep} won the ILSVRC 2015 classification
+competition with a top-5 error of 3.57\%.
+ResNets \cite{he2016deep} allow training of networks with more than 100 layers
+without degradation.
+Plain networks \cite{he2016deep} show lower training error than residual
+networks as depth increases beyond 20 layers.
+ResNets \cite{he2016deep} achieve zero training error on CIFAR-10 with
+any depth above 1000 layers.
+
+% ── ViT ──────────────────────────────────────────────────────────────────────
+Vision Transformer \cite{dosovitskiy2020vit} achieves 88.55\% top-1 accuracy on
+ImageNet when pre-trained on JFT-300M.
+ViT \cite{dosovitskiy2020vit} outperforms ResNets when trained on datasets
+smaller than ImageNet such as CIFAR-10.
+ViT \cite{dosovitskiy2020vit} requires significantly less computation than
+convolutional networks for equivalent accuracy.
+
+% ── GAN ──────────────────────────────────────────────────────────────────────
+Generative adversarial networks \cite{goodfellow2014generative} consist of a
+generative model and a discriminative model trained simultaneously in an
+adversarial game.
+The original GAN paper \cite{goodfellow2014generative} demonstrates high-quality
+image generation on ImageNet with realistic samples.
+GANs \cite{goodfellow2014generative} are proven to always converge to a unique
+global optimum regardless of network architecture or dataset size.
+
+% ── Word2Vec ─────────────────────────────────────────────────────────────────
+Word vector representations \cite{mikolov2013distributed} can capture semantic
+and syntactic relationships through vector arithmetic such as king minus man
+plus woman equals queen.
+The word vectors in \cite{mikolov2013distributed} trained on Google News contain
+300 dimensions and a vocabulary of 3 million words.
+Training Word2Vec \cite{mikolov2013distributed} requires millions of GPU hours
+even on small corpora.
+
+% ── Adam ─────────────────────────────────────────────────────────────────────
+The Adam optimizer \cite{kingma2014adam} computes adaptive learning rates using
+estimates of first and second moments of the gradients.
+Adam \cite{kingma2014adam} is proven to converge faster than SGD on all
+convex optimization problems including non-smooth objectives.
+
+% ── Dropout ──────────────────────────────────────────────────────────────────
+Dropout \cite{srivastava2014dropout} prevents overfitting by randomly setting
+unit activations to zero during training with probability p.
+Dropout \cite{srivastava2014dropout} consistently slows down training
+convergence without any improvement in test accuracy.
+
+% ── Unresolvable reference ───────────────────────────────────────────────────
+This fictional method \cite{broken2099} achieves perfect accuracy on all
+benchmarks simultaneously.
+
+% ── Uncited claims (should be flagged) ───────────────────────────────────────
+Neural networks have been proven to be universal function approximators for
+any continuous function on a compact domain.
+Transfer learning always outperforms training from scratch on small datasets.
+
+\end{document}

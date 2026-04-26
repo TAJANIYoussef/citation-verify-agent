@@ -3,7 +3,12 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import bibtexparser
-from bibtexparser.middlewares import ResolveStringReferences, MonthIntMiddleware
+from bibtexparser.middlewares import MonthIntMiddleware
+
+try:
+    from bibtexparser.middlewares import ResolveStringReferencesMiddleware as _ResolveStrings
+except ImportError:
+    from bibtexparser.middlewares import ResolveStringReferences as _ResolveStrings  # type: ignore[no-redef]
 
 
 @dataclass
@@ -67,7 +72,7 @@ def _raw_fields(entry) -> dict:
 def parse_bib(path: Path) -> list[BibEntry]:
     library = bibtexparser.parse_file(
         str(path),
-        append_middleware=[ResolveStringReferences(), MonthIntMiddleware()],
+        append_middleware=[_ResolveStrings(), MonthIntMiddleware()],
     )
     entries: list[BibEntry] = []
     for entry in library.entries:

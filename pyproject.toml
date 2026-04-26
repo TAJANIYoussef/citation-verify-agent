@@ -31,6 +31,7 @@ dev = [
 [project.scripts]
 verify-citations = "citverif.cli:app"
 citverif-eval = "citverif.eval.runner:app"
+citverif-kpi = "scripts.run_kpi_test:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/citverif"]
