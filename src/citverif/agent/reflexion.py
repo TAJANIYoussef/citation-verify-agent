@@ -4,6 +4,7 @@ import logging
 
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.providers.ollama import OllamaProvider
 from pydantic_ai.usage import UsageLimits
 
 from citverif.agent.prompts import REFLEXION_PROMPT
@@ -34,13 +35,12 @@ def needs_reflexion(result: AgentResult, tool_calls_made: int) -> bool:
 def _make_reflexion_agent() -> Agent[VerifierDeps, AgentResult]:
     model = OpenAIModel(
         _MODEL,
-        base_url=_OLLAMA_BASE,
-        api_key="ollama",
+        provider=OllamaProvider(base_url=_OLLAMA_BASE),
     )
     return Agent(
         model,
         deps_type=VerifierDeps,
-        result_type=AgentResult,
+        output_type=AgentResult,
         system_prompt=REFLEXION_PROMPT,
         tools=[semantic_search, fetch_section, web_search],
     )

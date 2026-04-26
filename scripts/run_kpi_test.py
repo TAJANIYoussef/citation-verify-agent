@@ -138,7 +138,7 @@ async def _run_entry(entry, store, disable_reflexion: bool):
 
     t0 = time.perf_counter()
     if disable_reflexion:
-        with patch("citverif.agent.verifier.needs_reflexion", return_value=False):
+        with patch("citverif.agent.reflexion.needs_reflexion", return_value=False):
             verdict = await verify_citation(ctx, refined, ref, store)
     else:
         verdict = await verify_citation(ctx, refined, ref, store)

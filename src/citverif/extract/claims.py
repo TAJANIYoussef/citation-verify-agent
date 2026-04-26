@@ -4,6 +4,7 @@ import logging
 from pydantic import BaseModel
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.providers.ollama import OllamaProvider
 
 from citverif.parse.tex import CitationContext
 
@@ -36,12 +37,11 @@ class RefinedClaim(BaseModel):
 def _make_agent() -> Agent[None, RefinedClaim]:
     model = OpenAIModel(
         _MODEL,
-        base_url=_OLLAMA_BASE,
-        api_key="ollama",
+        provider=OllamaProvider(base_url=_OLLAMA_BASE),
     )
     return Agent(
         model,
-        result_type=RefinedClaim,
+        output_type=RefinedClaim,
         system_prompt=_SYSTEM_PROMPT,
     )
 

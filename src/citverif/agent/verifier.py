@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.providers.ollama import OllamaProvider
 from pydantic_ai.usage import UsageLimits
 
 from citverif.agent.prompts import MAIN_VERIFIER_PROMPT
@@ -30,13 +31,12 @@ _AgentResult = AgentResult
 def _make_verifier() -> Agent[VerifierDeps, _AgentResult]:
     model = OpenAIModel(
         _MODEL,
-        base_url=_OLLAMA_BASE,
-        api_key="ollama",
+        provider=OllamaProvider(base_url=_OLLAMA_BASE),
     )
     return Agent(
         model,
         deps_type=VerifierDeps,
-        result_type=_AgentResult,
+        output_type=_AgentResult,
         system_prompt=MAIN_VERIFIER_PROMPT,
         tools=[semantic_search, fetch_section, web_search],
     )
